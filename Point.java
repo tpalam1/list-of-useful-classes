@@ -39,8 +39,21 @@ public class Point
   // MUTATORS
   
   
+    
+  public double getX()
+  {
+    return x;
+  }
+  
+  public double getY()
+  {
+    return y;
+  }
+  
   public String toString()
   {
+    fixDigits(); // makes the Point's coords easier to read 
+    
     String s = "";
     
     s += "(" + x + ", " + y + ")";
