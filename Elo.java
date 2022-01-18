@@ -71,10 +71,10 @@ public class Elo
   public String toString()
   {
     return String.valueOf(e); 
-  } // returns the current Elo 
+  } // returns the current Elo as a String 
   
   public void display()
   {
     System.out.println(toString());
   } // void toString()  
-}
+} /** Used for comparing two Objects within a competitive environment; i.e: games, sports, etc. **/
