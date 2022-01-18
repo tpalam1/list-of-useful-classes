@@ -23,7 +23,7 @@ public class Point
   // CONSTRUCTORS 
   
   
-  public double fix(double d)
+  public static double fix(double d)
   {
     d = Math.floor(d * 1000) / 1000;
     
