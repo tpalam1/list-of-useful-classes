@@ -75,6 +75,16 @@ public class Dice
     return d;
   }
   
+  public static double getRandDouble(double min, double max)
+  {
+    return Math.random() * (max - min + 1) + min;
+  } // returns a random double, [min, max]
+  
+  public static int getRandInt(int min, int max)
+  {
+    return (int) getRandDouble((double) min, (double) max)
+  } // see getRandDouble(min, max)
+  
   public Dice clone()
   {
     ArrayList<Integer> copyArr = d;
