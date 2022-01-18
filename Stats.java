@@ -9,17 +9,21 @@ public final class Stats
     // sanitizes the input before operations 
     
 	  double size = arr.size();
+    double half_size = size / 2;
+	  
+	  int HALF_SIZE_LOWER_BOUND = (int)(half_size) - 1;
+	  int HALF_SIZE_UPPER_BOUND = (int)(half_size);
 	  
 	  if(size % 2 == 0)
 	  {
-	    double a1 = arr.get((int)Math.floor(size / 2));
-	    double a2 = arr.get((int)Math.ceil(size / 2));
+	    double a1 = (double)arr.get(HALF_SIZE_LOWER_BOUND);
+	    double a2 = (double)arr.get(HALF_SIZE_UPPER_BOUND);
 	    
 	    return getAvg(a1, a2);
 	  } // IF even? find the middle two values + average them! 
 	  else 
 	  {
-	    return arr.get(size / 2);
+	    return arr.get((int)(half_size));
 	  } // ELSE? returns the value in the middle of the ArrayList 
 	}
 
