@@ -50,6 +50,19 @@ public class Point
     return y;
   }
   
+  public double getDist(Point p)
+  {
+    double delta_x = x - p.getX();
+    double delta_y = y - p.getY();
+    
+    double dx_squared = delta_x * delta_x;
+    double dy_squared = delta_y * delta_y;
+    
+    double pythag = Math.sqrt(dx_squared + dy_squared);
+    
+    return pythag;
+  }
+  
   public String toString()
   {
     fixDigits(); // makes the Point's coords easier to read 
