@@ -1,7 +1,7 @@
 import java.util.ArrayList; 
 import java.util.Collections;
 
-public static Primes
+public final class Primes
 {
   public static ArrayList<Integer> getPrimesBelow(int i)
   {
@@ -85,4 +85,4 @@ public static Primes
 	  return true; // null hypothesis 
 	} // returns TRUE IF N and M share any factors besides 1; FALSE elsewise. 
 
-} /** Class with various functions relating to prime numbers. **/
+} /** Library with various functions relating to prime numbers. **/
