@@ -36,6 +36,22 @@ public class Point
     y = fix(y);
   } // fixes both coordinates to a specific precision
   
+  public void flipHorizontal()
+  {
+    x *= -1;
+  }
+  
+  public void flipVertical()
+  {
+    y *= -1;
+  }
+  
+  public void rotateHalfCircle()
+  {
+    flipHorizontal();
+    flipVertical();
+  }
+  
   // MUTATORS
   
   
