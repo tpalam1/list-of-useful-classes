@@ -51,6 +51,19 @@ public class Point3D
   // MUTATORS
   
   
+  public static Point3D getMidPoint(Point3D A, Point3D B)
+  {
+		Point3D C = new Point3D(
+		  0.5 * (A.getX() + B.getX()),
+		  0.5 * (A.getY() + B.getY()),
+		  0.5 * (A.getZ() + B.getZ()));
+		  
+		return C;
+  }
+  
+  // STATIC ACCESSORS 
+  
+  
   public double getX()
   {
     return p.getX();
@@ -110,6 +123,6 @@ public class Point3D
     return s;
   }
   
-  // ACCESSORS
+  // NON-STATIC ACCESSORS
   
 } /** Represents a single point in an XYZ space. **/
