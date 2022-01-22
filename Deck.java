@@ -20,6 +20,32 @@ public class Deck
     Collections.shuffle(d);
   } // creates a new Deck of 52 Cards 
   
+  public Card draw(boolean removeFromDeck)
+  {
+    Collections.shuffle(d);
+    
+    Card output = d.get(0);
+    
+    if(removeFromDeck)
+    {
+      d.remove(0);
+    }
+    
+    return output;
+  }
+  
+  public ArrayList<Card> draw(boolean removeFromDeck, int num_cards)
+  {
+    ArrayList<Card> output = new ArrayList<Card>();
+    
+    for(int i = 0; i < num_cards; i++)
+    {
+      output.add(draw(removeFromDeck));
+    }
+    
+    return output;
+  }
+  
   public String toString()
   {
     String output = "[";
