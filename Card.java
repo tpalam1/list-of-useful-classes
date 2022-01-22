@@ -1,16 +1,21 @@
 public class Card 
 {
-  int value; // stores the value of this Card 
+  double value; // stores the value of this Card 
   
   public Card()
   {
     value = 0; 
   } // creates a new blank Card 
   
-  public Card(int d)
+  public Card(double d)
   {
     value = d;
   } // creates a new Card with value D 
+  
+  public double getValue()
+  {
+    return value;
+  }
   
   public String toString()
   {
