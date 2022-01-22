@@ -48,23 +48,8 @@ public class Deck
   
   public String toString()
   {
-    String output = "[";
-    
-    for(int i = 1; i <= d.size(); i++)
-    {
-      Card curr = d.get(i-1);
-      
-      output += curr.toString();
-      
-      if(i < d.size())
-      {
-        output += ", ";
-      }
-      else 
-      {
-        output += "]";
-      }
-    }
+    return d.toString();
+  }
     
     return output;
   }
