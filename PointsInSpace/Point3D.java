@@ -20,6 +20,12 @@ public class Point3D
     z = Math.random();
   }
   
+  public Point3D(Point q)
+  {
+    p = q;
+    z = 0;
+  } // Constructs a 3D point with z = 0
+  
   public Point3D(double horizontal, double vertical, double depth)
   {
     p = new Point(horizontal, vertical);
@@ -77,7 +83,7 @@ public class Point3D
   
   public Point getProjectionOnto(String plane) throws Exception
   {
-    switch(plane)
+    switch(plane.toUpperCase())
     {
       case "XY":
         return new Point(this.getX(), this.getY());
