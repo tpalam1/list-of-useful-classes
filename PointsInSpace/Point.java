@@ -54,7 +54,24 @@ public class Point
   
   // MUTATORS
   
+  public static Point getMidPointWith(Point p, Point q)
+  {
+    double MID_X = 0.5 * (q.getX() + p.getX());
+    double MID_Y = 0.5 * (q.getY() + p.getY());
+    
+    return new Point(MID_X, MID_Y);
+  }
   
+  // STATIC ACCESSORS 
+  
+ 
+  public Point getMidPointWith(Point p)
+  {
+    double MID_X = 0.5 * (this.getX() + p.getX());
+    double MID_Y = 0.5 * (this.getY() + p.getY());
+    
+    return new Point(MID_X, MID_Y);
+  }  
     
   public double getX()
   {
