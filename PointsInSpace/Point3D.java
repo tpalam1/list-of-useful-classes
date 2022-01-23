@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Point3D
 {
   Point p; // stores the (X, Y) coords.
@@ -59,6 +61,57 @@ public class Point3D
 		  0.5 * (A.getZ() + B.getZ()));
 		  
 		return C;
+  }
+  
+  public static ArrayList<Double> getCoefOfBisectingPlane(Point3D A, Point3D F)
+  {
+    ArrayList<Double> output = new ArrayList<Double>(); 
+    
+    double b = A.getX();
+    double c = A.getY();
+    double d = A.getZ();
+    
+    double g = F.getX();
+    double h = F.getY();
+    double i = F.getZ();
+    
+    double NORMALIZER = i - d; 
+    
+    double X_COEFF = -1 * (g - b) / NORMALIZER;
+    double Y_COEFF = -1 * (h - c) / NORMALIZER;
+    
+    double CONSTANT_PART_A = b * b + c * c + d * d;
+    double CONSTANT_PART_B = g * g + h * h + i * i;
+    double CONSTANT = (CONSTANT_PART_A - CONSTANT_PART_B) / (-2 * NORMALIZER);
+    
+    output.add(X_COEFF);
+    output.add(Y_COEFF);
+    output.add(CONSTANT);
+    
+    return output;
+  } 
+  /** 
+   * Returns an ArrayList such:
+   * z(x,y) = Plane of all Points equidistant from A and B;
+   * z(x,y) = x * R[0] + y * R[1] + R[2].
+   **/
+   
+  public static String toStringCoefOfBisectingPlane(Point3D A, Point3D F)
+  {
+    ArrayList<Double> CONSTANTS = getCoefOfBisectingPlane(A, F);
+    
+    double X_COEFF = CONSTANTS.get(0);
+    double Y_COEFF = CONSTANTS.get(1);
+    double K = CONSTANTS.get(2);
+    
+    String s = "";
+    
+    s += "z(x, y) = ";
+    s += "x * " + X_COEFF + " + ";
+    s += "y * " + Y_COEFF + " + ";
+    s += K; 
+    
+    return s;
   }
   
   // STATIC ACCESSORS 
