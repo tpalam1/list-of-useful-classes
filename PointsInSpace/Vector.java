@@ -83,6 +83,15 @@ public class Vector
     // copies the updates to this Vector's (x, y)
   }
   
+  public void subtract(Vector v)
+  {
+    Vector copy = v.copy();
+    
+    copy.multiply(-1);
+    
+    this.add(copy);
+  }
+  
   // MUTATORS 
 
 
@@ -184,15 +193,20 @@ public class Vector
   {
     switch(DISPLAY_SETTING)
     {
+      case "MAGNITUDE-DIRECTION":
+        return getMagnitudeDirection();
+
       case "XY":
       case "COMPONENTS":
-        return getComponents();
-      case "MAGNITUDE-DIRECTION":
       case "DEFAULT":
       default:
-        return getMagnitudeDirection();
+        return getComponents();
     }
-  }
+  } 
+  /**
+   * Returns a String representation of this Vector;
+   * (X, Y) output by default.
+   **/
   
   public String getMagnitudeDirection()
   {
