@@ -52,6 +52,16 @@ public class Point
     flipVertical();
   }
   
+  public void setX(double d)
+  {
+    x = d;
+  }
+  
+  public void setY(double d)
+  {
+    y = d;
+  }
+  
   // MUTATORS
   
   public static Point getMidPointWith(Point p, Point q)
