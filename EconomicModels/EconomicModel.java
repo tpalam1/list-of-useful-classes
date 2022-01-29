@@ -84,9 +84,7 @@ public class EconomicModel
   public String getStatusX()
   {
     double change_in_x = x - 100;
-    
-    System.out.println(change_in_x);
-    
+       
     if(change_in_x == 0)
     {
       return "Negligible change.";
