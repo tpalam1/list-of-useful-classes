@@ -1,4 +1,4 @@
-class LoanableFunds extends EconomicModel
+public class LoanableFunds extends EconomicModel
 {
   public LoanableFunds()
   {
