@@ -8,7 +8,8 @@ public class AggregateEconomy extends EconomicModel
     setAxisLabelY("PRICE LEVEL");
   }
   
-  public String getStatus() throws Exception
+  @Override
+  public String getStatus()
   {
     switch(getStatusX())
     {
@@ -19,9 +20,7 @@ public class AggregateEconomy extends EconomicModel
       case "Negligible change.":
         return "Running as normal.";
       default:
-        throw new Exception(
-          "AggregateEconomy.getStatus(): switch statement failed to identify " + 
-          "current status of economy.");
+        return "Unsure, check AggregateEconomy.getStatus().";
     }
   }
 } /** Represents the AD-AS curves. **/
