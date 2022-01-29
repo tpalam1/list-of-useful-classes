@@ -117,6 +117,16 @@ public class EconomicModel
     }
   }
   
+  public String getStatus()
+  {
+    String s = "";
+    
+    s += "(" + x_axis + " = " + getStatusX() + ", ";
+    s +=       y_axis + " = " + getStatusY() + ")";
+    
+    return s; 
+  }
+  
   public String toString()
   {
     String s = "";
