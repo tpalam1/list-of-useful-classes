@@ -4,7 +4,7 @@ public class LoanableFunds extends EconomicModel
   {
     super();
     
-    setAxisLabelX("REAL INTEREST RATE");
-    setAxisLabelY("QUANTITY OF LOANABLE FUNDS");
+    setAxisLabelX("QUANTITY OF LOANABLE FUNDS");
+    setAxisLabelY("REAL INTEREST RATE");
   }
 } /** Represents the saving-borrowing curves. **/
