@@ -171,4 +171,61 @@ public final class VectorMath
     
     return getMagnitude(crossProduct);
   } // returns area of a parallelogram defined by 2 Vectors 
+
+
+  
+  
+  public static ArrayList<Double> getVector(
+    double x_1, double y_1, double z_1,
+    double x_2, double y_2, double z_2)
+  {
+    ArrayList<Double> output = new ArrayList<Double>();
+    
+    output.add(x_2 - x_1);
+    output.add(y_2 - y_1);
+    output.add(z_2 - z_1);
+    
+    return output;
+  } // returns a Vector between two points 
+  
+  public static ArrayList<Double> getVector(
+    double x_1, double y_1,
+    double x_2, double y_2)
+  {
+    return getVector(
+      x_1, y_1, 0,
+      x_2, y_2, 0);
+  }
+  
+  public static String getPlaneEquationOf(
+    double x_1, double y_1, double z_1,
+    double x_2, double y_2, double z_2,
+    double x_3, double y_3, double z_3)
+  {
+    ArrayList<Double> vector_1_2 = getVector(
+      x_1, y_1, z_1,
+      x_2, y_2, z_2);
+    
+    ArrayList<Double> vector_1_3 = getVector(
+      x_1, y_1, z_1,
+      x_3, y_3, z_3);
+      
+    ArrayList<Double> normalVector = getCrossProduct(
+      vector_1_2.get(0), vector_1_2.get(1), vector_1_2.get(2),
+      vector_1_3.get(0), vector_1_3.get(1), vector_1_3.get(2));
+    
+    
+    String output = "";
+    
+    output += (String.valueOf(normalVector.get(0)));
+    output += "(x + (" + -x_1 + ")) + ";
+    
+    output += (String.valueOf(normalVector.get(1)));
+    output += "(y + (" + -y_1 + ")) + ";
+    
+    output += (String.valueOf(normalVector.get(2)));
+    output += "(z + (" + -z_1 + ")) = 0";
+    
+    return output;
+  }
 } /** Class for calculating quantities related to 3D vectors. **/
