@@ -1,5 +1,3 @@
-package com.abdulfatir.jcomplexnumber;
-
 /**
  * <code>ComplexNumber</code> is a class which implements complex numbers in Java. 
  * It includes basic operations that can be performed on complex numbers such as,
@@ -188,6 +186,10 @@ public class ComplexNumber
 	@Override
 	public String toString()
 	{
+	  String s = "(" + fix(this.real) + ", " + fix(this.imaginary) + ")";
+	  return s;
+	  
+	  /**
 		String re = this.real+"";
 		String im = "";
 		if(this.imaginary < 0)
@@ -195,6 +197,7 @@ public class ComplexNumber
 		else
 			im = "+"+this.imaginary+"i";
 		return re+im;
+		*/ // OLD a+bi code  
 	}
 	/**
 	* Calculates the exponential of the <code>ComplexNumber</code>
@@ -385,6 +388,7 @@ public class ComplexNumber
 	* @return a string representation of the complex number
 	* @throws IllegalArgumentException if the format_id does not match.
 	*/
+	
 	public String format(int format_id) throws IllegalArgumentException
 	{
 		String out = "";
@@ -399,5 +403,27 @@ public class ComplexNumber
 			throw new IllegalArgumentException("Unknown Complex Number format.");
 		}
 		return out;
+	}
+	
+	
+	// NEW METHODS 
+	
+	public ComplexNumber copy()
+	{
+	  return new ComplexNumber(real, imaginary);
+	}
+	
+	public boolean isNaN()
+	{
+	  if((Double.isNaN(real) && Double.isNaN(imaginary)))
+	  {
+	    return true;
+	  }
+	  return false; 
+	}
+	
+	public static double fix(double d)
+	{
+	  return Math.floor(d * 1000) / 1000;
 	}
 }
