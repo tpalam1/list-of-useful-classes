@@ -21,6 +21,21 @@ public class QuadReg
     approximate(); 
   }
   
+  public QuadReg(ArrayList<Double> x_list, ArrayList<Double> y_list)
+  {
+    try 
+    {
+      lop = new ListOfPoints(x_list, y_list);
+    }
+    catch(Exception e)
+    {
+      System.out.println(e.getMessage());
+      System.exit(0);
+    }
+    
+    approximate();
+  }
+  
   // CONSTRUCTORS 
   
   
