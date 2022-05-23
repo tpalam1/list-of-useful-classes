@@ -94,7 +94,7 @@ public class Main
     }
     else 
     {
-      verdict = "--";
+      verdict = "POSSIBLE";
     }
     
     return verdict;
