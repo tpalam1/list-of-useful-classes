@@ -4,19 +4,22 @@ public class Main
 {
 	public static void main(String[] args) 
 	{
-	  int increment = 4;
+	  int increment = 1;
 	  
-	  System.out.println("N\tSTARTING VALUE\tNUMBER OF CONSECUTIVE INTEGERS\tVERDICT");
-		for(int i = 3; i <= 100; i++)
+	  System.out.println("N\tSTARTING VALUE\tENDING VALUE\tVERDICT");
+		for(int i = 0; i <= 100; i++)
 		{
 		  ArrayList<Double> results = getLargestComposition(i, increment);
 		  
-		  double A = results.get(0);
-		  double B = results.get(1);
+		  double start_value = results.get(0);
+		  double num_consect_integers = results.get(1);
 		  
-		  String verdict = getVerdict(A, B);
+		  double range = num_consect_integers * increment;
+		  double end_value = start_value + range;
 		  
-		  System.out.println(i + "\t" + A + "\t\t" + B + "\t\t\t\t" + verdict);
+		  String verdict = getVerdict(start_value, num_consect_integers);
+		  
+		  System.out.println(i + "\t" + start_value + "\t\t" + end_value + "\t\t\t\t" + verdict);
 		}
 	}
 	
