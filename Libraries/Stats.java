@@ -68,6 +68,63 @@ public final class Stats
 
 	  return output;
 	} // returns the (10th, 50th, 90th) percentiles of the Array 
+	
+	public static int countNumOf(int specific_value, ArrayList<Integer> arr)
+	{
+	  Collections.sort(arr);
+	  
+	  return Collections.frequency(arr, specific_value);
+	}
+	
+	public static int countNumBetween(int min_value_inclusive, 
+	                                  int max_value_inclusive,
+	                                  ArrayList<Integer> arr)
+  {
+    Collections.sort(arr);
+    
+    int count = 0;
+    for(int i = 0; i < arr.size(); i++)
+    {
+      int curr_entry = arr.get(i);
+      
+      if(min_value_inclusive <= curr_entry && curr_entry <= max_value_inclusive)
+      {
+        count++;
+      }
+    }
+    
+    return count;
+  }
+  
+  public static double getRelFreqOf(int min_value_inclusive,
+                                    int max_value_inclusive,
+                                    ArrayList<Integer> arr)
+  {
+    if(min_value_inclusive == max_value_inclusive)
+    {
+      return getRelFreqOf(min_value_inclusive, arr);
+    }
+    else 
+    {
+      return (double) countNumBetween(min_value_inclusive, max_value_inclusive, arr) / (double) arr.size();
+    }
+  }
+	
+	public static double getRelFreqOf(int specific_value, ArrayList<Integer> arr)
+	{
+	  int count = countNumOf(specific_value, arr);
+	  
+	  return (double) count / arr.size();
+	}
+	
+	public static double getValueAt(double percentile, ArrayList<Integer> arr)
+	{
+    Collections.sort(arr);
+    
+	  int index = (int)(arr.size() * percentile / 100);
+	  
+	  return arr.get(index);
+	}
   
 }
 /** Custom library for retrieving handy summary statistics from ArrayLists. **/
