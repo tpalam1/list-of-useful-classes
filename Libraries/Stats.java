@@ -55,6 +55,19 @@ public final class Stats
   {
     return getSum(arr) / (double)(arr.size());
   }
+	
+	public static ArrayList<Double> getSummary(ArrayList<Integer> arr)
+	{
+	  ArrayList<Double> output = new ArrayList<Double>();
+
+	  Collections.sort(arr);
+
+	  output.add(getValueAt(10.0, arr));
+	  output.add(getValueAt(50.0, arr));
+	  output.add(getValueAt(90.0, arr));
+
+	  return output;
+	} // returns the (10th, 50th, 90th) percentiles of the Array 
   
 }
 /** Custom library for retrieving handy summary statistics from ArrayLists. **/
