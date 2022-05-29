@@ -5,22 +5,15 @@ public class Main
 {
 	public static void main(String[] args) 
 	{
-	  int trials = 1000000;
+	  int trials = 1000;
+	  int num_ids_to_compare = 100000;
 	  ArrayList<Integer> count_matching_ARR = new ArrayList<Integer>();
 	  
 		for(int i = 0; i < trials; i++)
 		{
-		  String A = getRandID(); // id_1, the original id to compare everything else to;
-		  String B = getRandID();
-		  String C = getRandID();
-		  String D = getRandID();
-		  String E = getRandID();
+		  String original_ID = getRandID(); // id_1, the original id to compare everything else to;
 		  
-		  String F = getRandID();
-		  String G = getRandID();
-		  
-		  int count_matching = getCountMatchingDigits(A, B, C, D, E,
-		                                              F, G);
+		  int count_matching = getCountMatchingDigits(original_ID, num_ids_to_compare); 
 		  
 		  // System.out.println(A + "\t" + B + "\t" + count_matching);
 		  
@@ -133,6 +126,24 @@ public class Main
     
     return Collections.max(results);
   } // returns the largest string of matching digits to 'id_1' from a set of Strings 
+  
+  public static int getCountMatchingDigits(
+    String id_1,
+    int num_ids_to_compare)
+  {
+    // generates N number of random IDs 
+    ArrayList<String> rand_ids_ARR = new ArrayList<String>();
+    for(int i = 0; i < num_ids_to_compare; i++)
+    {
+      String new_rand_id = getRandID();
+      rand_ids_ARR.add(new_rand_id);
+    }
+    
+    return getCountMatchingDigits(id_1, rand_ids_ARR.toArray(new String[0]));
+  }
+  /**
+   * Compares a given ID to a set of randomly arranged IDs.
+   **/ 
 	
 	public static char getDigitAt(int position_from_right, String id)
 	{
