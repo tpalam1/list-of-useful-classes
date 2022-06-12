@@ -117,6 +117,24 @@ public final class Stats
 
 	  return (count_of_num / count);
 	}
+	
+	public static double getRelFreqOf(double min_value_inclusive,
+									  double max_value_inclusive,
+									  ArrayList<Double> arr)
+	{
+		if(min_value_inclusive == max_value_inclusive)
+		{
+		  return getRelFreqOf(min_value_inclusive, arr);
+		}
+
+		double sum = 0;
+		for(double i = min_value_inclusive; i <= max_value_inclusive; i++)
+		{
+		  sum += getRelFreqOf(i, arr);
+		}
+
+		return sum;
+	}
 
 	public static double getValueAt(double percentile, ArrayList<Integer> arr)
 	{
